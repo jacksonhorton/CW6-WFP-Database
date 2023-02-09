@@ -24,5 +24,10 @@ namespace CW6_WFP_Database
         {
             InitializeComponent();
         }
+
+        private void SeeAssetsButton_Click(object sender, RoutedEventArgs e)
+        {
+            //CW6_DatabaseConnectionString
+        }
     }
 }
