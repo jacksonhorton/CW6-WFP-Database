@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+ * Jackson Horton - 2/14/23
+ * CW6 WPF Database Assignment
+ * 
+ * In this project, the WPF application runs SQL queries on an
+ * Access database and will display the results to the GUI.
+ */
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
