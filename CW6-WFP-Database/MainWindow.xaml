@@ -7,8 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock x:Name="AssetTextBlock" HorizontalAlignment="Left" Margin="180,84,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
-        <Button x:Name="SeeAssetsButton" Content="See Assets" HorizontalAlignment="Left" Margin="196,143,0,0" VerticalAlignment="Top" Click="SeeAssetsButton_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="41*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="AssetTextBlock" HorizontalAlignment="Left" Margin="10,90,0,0" TextWrapping="Wrap" Text="Click button to load assets" VerticalAlignment="Top" FontSize="18"/>
+        <Button x:Name="SeeAssetsButton" Content="See Assets" HorizontalAlignment="Left" Margin="23,43,0,0" VerticalAlignment="Top" Click="SeeAssetsButton_Click" FontSize="18"/>
+        <Button x:Name="ShowEmployeesButton" Content="Show Employees" HorizontalAlignment="Left" Margin="22,43,0,0" VerticalAlignment="Top" Click="ShowEmployeesButton_Click" FontSize="18" Grid.Column="1"/>
+        <TextBlock x:Name="EmployeeTextBlock" HorizontalAlignment="Left" Margin="22,90,0,0" TextWrapping="Wrap" Text="Click button to load employees" VerticalAlignment="Top" FontSize="18" Grid.Column="1"/>
 
     </Grid>
 </Window>

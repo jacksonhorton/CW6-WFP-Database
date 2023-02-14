@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +21,41 @@ namespace CW6_WFP_Database
     /// </summary>
     public partial class MainWindow : Window
     {
+        OleDbConnection cn;
         public MainWindow()
         {
+            cn = new OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=\"|DataDirectory|\\CW6 Database.accdb\"");
             InitializeComponent();
         }
 
         private void SeeAssetsButton_Click(object sender, RoutedEventArgs e)
         {
-            //CW6_DatabaseConnectionString
+            string query = "select* from Assets";
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            cn.Open();
+            OleDbDataReader read = cmd.ExecuteReader();
+            string data = "";
+            while (read.Read())
+            {
+                data += read[1] + ": " + read[2] + " -> EID" + read[0] +  "\n";
+            }
+            AssetTextBlock.Text = data;
+            cn.Close();
+        }
+
+        private void ShowEmployeesButton_Click(object sender, RoutedEventArgs e)
+        {
+            string query = "select* from Employees";
+            OleDbCommand cmd = new OleDbCommand(query, cn);
+            cn.Open();
+            OleDbDataReader read = cmd.ExecuteReader();
+            string data = "";
+            while (read.Read())
+            {
+                data += "EID" + read[0] + ": " + read[1] + " " + read[2] + "\n";
+            }
+            EmployeeTextBlock.Text = data;
+            cn.Close();
         }
     }
 }
